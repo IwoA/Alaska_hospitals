@@ -39,10 +39,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 | Source | Resource | Description |
 | ------ | -------- | ----------- |
-| AHRQ | [NHQR/NHDR Web Site](https://nhqrnet.ahrq.gov/inhqrdr/Alaska/dashboard) | State dashboards and benchmarks |
-| AHRQ | [Medical Expenditure Panel Survey (MEPS)](https://meps.ahrq.gov/mepstrends/hc_care/) | Easy access (R code included), broad coverage |
+| AHRQ | [NHQR/NHDR Web Site](https://nhqrnet.ahrq.gov/inhqrdr/Alaska/dashboard) | State dashboards and benchmarks, timeseries, only complicated excel files |
+| AHRQ | [Medical Expenditure Panel Survey (MEPS)](https://meps.ahrq.gov/mepstrends/hc_care/) | Easy access (R code included), broad coverage, only national data |
 | CMS | Medicare Compare | Easy access, quality assessment included. |
-| CDC | [National Vital Statistics System](https://www.cdc.gov/nchs/nvss/index.htm) | General data (mortality rate, life expectancy etc.) |
+| CDC | [CDC Wonder](https://wonder.cdc.gov/) | General data (mortality rate, cause of death etc.) |
 
 
 

@@ -1,0 +1,152 @@
+---
+title: "Healthcare quality"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(dplyr) 
+library(ggplot2)
+
+h <- read.csv("hospitals.csv")
+
+# correct order of levels
+h <- h %>%group_by(state) %>% 
+  mutate(n = n())
+
+for (i in 5:11) {  
+  h[[i]] <- factor(h[[i]], levels(h[[i]])[c(3,4,2,1)])
+}
+h$Overall_rating <- factor(h$Overall_rating, levels(h$Overall_rating)[c(6, 1:5)]) 
+# End of correct order of levels
+
+#################################
+graph <- function(data, tab = h){  # helper plotting graphs
+  if (data == "Overall_rating") {
+    ggplot(tab, aes(x=reorder(state,-n))) +
+      geom_bar(aes(fill=`Overall_rating`)) +   # Overall rating
+      scale_fill_manual(values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
+      geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL")), color = "grey") +
+      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = "Overall rating")
+  } else if (data == "Type") {
+    ggplot(tab, aes(x=reorder(state,-n))) +
+      geom_bar(aes(fill=Type)) +   # Type
+      geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL")), color = "grey") +
+      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = data)
+  } else {
+    ggplot(tab, aes(x=reorder(state,-n))) +
+      geom_bar(aes_string(fill=data)) +   
+      scale_fill_manual("", values = c("lightgray","orange","red", "green")) +
+      geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL"))) +
+      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = gsub("_", " ", data)) +
+      theme(legend.position = c(0.7, 0.8))
+  }
+
+}
+####################  end of graph function
+
+hospitals <- read.csv("hospitals_perc.csv")
+
+#####################
+graph_perc <- function(cat, h = hospitals) {
+  hospitals <- h
+  tmp <- filter(hospitals, category == cat)
+  tmp <- droplevels(tmp)
+  
+  if (cat =="Overall_rating") {
+    tmp$Values <- factor(tmp$Values, levels(tmp$Values)[c(6, 1:5)])  #correct order of levels
+  #  tmp[tmp$Values=="1",2] <- tmp[tmp$Values=="1",2] *-1
+    tmp <- tmp %>% group_by(state) %>% 
+      mutate(above = if_else(Values == "5", Freq, 0)) %>% 
+      arrange(state)
+    
+    ggplot(tmp, aes(x=reorder(state, -above), y = Freq)) +
+      geom_col(aes(fill = Values)) +
+      scale_fill_manual("", values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
+      geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
+      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+    
+  } else if (cat == "Type") {
+    ggplot(tmp, aes(x=state, y = Freq)) +
+      geom_col(aes(fill = Values)) +
+     # scale_fill_manual("") +
+      geom_vline(aes(xintercept = state %in% "AL"), color = "grey") +
+      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+    
+  } else {
+    tmp$Values <- factor(tmp$Values, levels(tmp$Values)[c(3, 2, 4, 1)])  #correct order of levels
+    tmp[tmp$Values=="Below the national average",2] <- tmp[tmp$Values=="Below the national average",2] *-1
+    tmp <- tmp %>% group_by(state) %>% 
+      mutate(above = if_else(Values == "Above the national average", Freq, 0)) %>% 
+      arrange(state)
+    
+    ggplot(tmp, aes(x=reorder(state, -above), y = Freq)) +
+      geom_col(aes(fill = Values)) +
+      scale_fill_manual("", values = c("lightgray", "red", "orange", "green")) +
+      geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
+      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+  }
+}
+########################## end of graph_perc function
+ 
+```
+
+Hospitals
+=====================================  
+
+
+Row {.tabset .tabset-fade}
+-------------------------------------
+
+
+### Overall Rating
+
+```{r, fig.width=12}
+graph("Overall_rating")
+```
+
+### Overall Rating in %
+
+```{r, fig.width=12}
+graph_perc("Overall_rating")
+```
+
+
+
+Row {.tabset .tabset-fade}
+-------------------------------------
+
+### Mortality
+```{r, fig.width=12}
+graph("Mortality")
+```
+
+### Mortality in %
+```{r, fig.width=12}
+graph_perc("Mortality")
+```
+
+Row 
+-------------------------------------
+
+
+### Safety of Care
+
+```{r, fig.width=12}
+graph("Safety_of_care")
+```
+
+Row 
+-------------------------------------
+
+### Readmission
+
+```{r, fig.width=12}
+graph("Readmission")
+```
+
+Nurses
+=====================================  
