@@ -1,7 +1,6 @@
 ---
 title: "Map of data sources"
 author: "Iwo Augustyński"
-date: "12 lutego 2019"
 output: ioslides_presentation
 ---
 
@@ -29,20 +28,20 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Primary Data Sources
 
 - [CMS](https://www.cms.gov/Research-Statistics-Data-and-Systems/Research-Statistics-Data-and-Systems.html) - Centers for Medicare & Medicaid Services
-- [HCAPS](https://www.hcahpsonline.org/) - Hospital Consumer Assessment of Healthcare Providers and Systems based on data submitted by participating hospitals to **CMS**
-- [Medicare Compare](https://data.medicare.gov/data/hospital-compare) - (Hospital, Nursing Home, Physician, Home Health, Dialysis Facility, Hospice compare. Official datasets provided by the **CMS**
+  - [HCAPS](https://www.hcahpsonline.org/) - Hospital Consumer Assessment of Healthcare Providers and Systems based on data submitted by participating hospitals to **CMS** and **AHRQ**
+  - [Medicare Compare](https://data.medicare.gov/data/hospital-compare) - (Hospital, Nursing Home, Physician, Home Health, Dialysis Facility, Hospice compare. Official datasets provided by the **CMS**
 - [AHRQ](https://www.ahrq.gov) - Agency for Healthcare Research and Quality
-- [CDC](https://wonder.cdc.gov/) - National Center for Health Statistics
-- [SEER](https://seer.cancer.gov/) - National Cancer Institute ?
+- [CDC](http://wonder.cdc.gov) - National Center for Health Statistics
+
 
 ## Suggested Databases
 
 | Source | Resource | Description |
 | ------ | -------- | ----------- |
 | AHRQ | [NHQR/NHDR Web Site](https://nhqrnet.ahrq.gov/inhqrdr/Alaska/dashboard) | State dashboards and benchmarks, timeseries, only complicated excel files |
-| AHRQ | [Medical Expenditure Panel Survey (MEPS)](https://meps.ahrq.gov/mepstrends/hc_care/) | Easy access (R code included), broad coverage, only national data |
+| CMS | [data.cms.gov](https://data.cms.gov/) | Easy access (CSV, JSON, API), broad coverage |
 | CMS | Medicare Compare | Easy access, quality assessment included. |
-| CDC | [CDC Wonder](https://wonder.cdc.gov/) | General data (mortality rate, cause of death etc.) |
+| CDC | [data.cdc.gov](https://data.cdc.gov/) | General data (mortality rate, cause of death etc.) |
 
 
 
@@ -50,7 +49,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Additional Eligible Data Sources
 
 ```{r }
-tab <- read.csv2("DATABASES_WITH_MEASURES.csv")
+tab <- read.csv2("DATABASES_WITH_MEASURES.csv", encoding = "UTF-8")
+colnames(tab)[1:2] <- c("Database Name", "Database Description")
 knitr::kable(tab[1:4,1:2])
 ```
 
@@ -58,7 +58,6 @@ knitr::kable(tab[1:4,1:2])
 ## Additional Eligible Data Sources
 
 ```{r }
-tab <- read.csv2("DATABASES_WITH_MEASURES.csv")
 knitr::kable(tab[5:8,1:2])
 ```
 
@@ -67,6 +66,5 @@ knitr::kable(tab[5:8,1:2])
 ## Additional Eligible Data Sources
 
 ```{r }
-tab <- read.csv2("DATABASES_WITH_MEASURES.csv")
 knitr::kable(tab[9:12,1:2])
 ```

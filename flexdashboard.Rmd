@@ -10,6 +10,7 @@ output:
 library(flexdashboard)
 library(dplyr) 
 library(ggplot2)
+library(plotly)
 
 h <- read.csv("hospitals.csv")
 
@@ -28,21 +29,22 @@ graph <- function(data, tab = h){  # helper plotting graphs
   if (data == "Overall_rating") {
     ggplot(tab, aes(x=reorder(state,-n))) +
       geom_bar(aes(fill=`Overall_rating`)) +   # Overall rating
-      scale_fill_manual(values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
+      scale_fill_manual("Score", values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
       geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL")), color = "grey") +
-      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = "Overall rating")
+      theme_minimal() + labs( x = "State", y = "Number of hospitals") +
+      theme(legend.position = c(0.8, 0.7))
   } else if (data == "Type") {
     ggplot(tab, aes(x=reorder(state,-n))) +
       geom_bar(aes(fill=Type)) +   # Type
       geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL")), color = "grey") +
-      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = data)
+      theme_minimal() + labs( x = "State", y = "Number of hospitals")
   } else {
     ggplot(tab, aes(x=reorder(state,-n))) +
       geom_bar(aes_string(fill=data)) +   
-      scale_fill_manual("", values = c("lightgray","orange","red", "green")) +
+      scale_fill_manual("Score", values = c("lightgray","orange","red", "green")) +
       geom_vline(aes(xintercept = which(levels(reorder(state, -n)) %in% "AL"))) +
-      theme_minimal() + labs( x = "State", y = "Number of hospitals", title = gsub("_", " ", data)) +
-      theme(legend.position = c(0.7, 0.8))
+      theme_minimal() + labs( x = "State", y = "Number of hospitals") +
+      theme(legend.position = c(0.7, 0.7))
   }
 
 }
@@ -63,18 +65,18 @@ graph_perc <- function(cat, h = hospitals) {
       mutate(above = if_else(Values == "5", Freq, 0)) %>% 
       arrange(state)
     
-    ggplot(tmp, aes(x=reorder(state, -above), y = Freq)) +
+    ggplot(tmp, aes(x=reorder(state, -above), y = Freq*100)) +
       geom_col(aes(fill = Values)) +
-      scale_fill_manual("", values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
+      scale_fill_manual("Score", values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
       geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
-      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+      theme_minimal()+ labs( x = "State", y = "% of hospitals")
     
   } else if (cat == "Type") {
-    ggplot(tmp, aes(x=state, y = Freq)) +
+    ggplot(tmp, aes(x=state, y = Freq*100)) +
       geom_col(aes(fill = Values)) +
      # scale_fill_manual("") +
       geom_vline(aes(xintercept = state %in% "AL"), color = "grey") +
-      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+      theme_minimal()+ labs( x = "State", y = "% of hospitals")
     
   } else {
     tmp$Values <- factor(tmp$Values, levels(tmp$Values)[c(3, 2, 4, 1)])  #correct order of levels
@@ -83,30 +85,58 @@ graph_perc <- function(cat, h = hospitals) {
       mutate(above = if_else(Values == "Above the national average", Freq, 0)) %>% 
       arrange(state)
     
-    ggplot(tmp, aes(x=reorder(state, -above), y = Freq)) +
+    ggplot(tmp, aes(x=reorder(state, -above), y = Freq*100)) +
       geom_col(aes(fill = Values)) +
-      scale_fill_manual("", values = c("lightgray", "red", "orange", "green")) +
+      scale_fill_manual("Score", values = c("lightgray", "red", "orange", "green")) +
       geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
-      theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat))
+      theme_minimal()+ labs( x = "State", y = "% of hospitals")
   }
 }
 ########################## end of graph_perc function
+
+######################### Ranking function
+ranking <- function(cat, data = hospitals) {
+     h <- data
+     ranking <- filter(h, category == cat & Values != "Not Available")
+     ranking[ranking$Values=="Below the national average",2] <- ranking[ranking$Values=="Below the national average",2] *-1
+     tmp <- filter(ranking, Values == "Same as the national average")
+     tmp$Freq <- 0
+     tmp1 <- filter(ranking, Values != "Same as the national average")
+     tmp1 <- tmp1 %>% group_by(state) %>% mutate(Freq = sum(Freq)) #pozytywne wartosci netto
+     
+     ranking <- bind_rows(tmp, tmp1) %>% filter(Values != "Below the national average") %>% 
+          mutate(above = if_else(Values == "Above the national average", Freq, 0))
+     ranking$Freq <- ranking$Freq*100
+     
+     # ggplot(ranking, aes(x=reorder(state, -above), y = Freq)) +
+     #      geom_col(aes(fill = Values)) +
+     #      geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL")))
+
+     x <- filter(ranking, Values == "Above the national average") %>% arrange( desc(Freq))
+     third <- x[3,c("state","Freq")]  #third place
+     al <- x[x$state == "AL",c("state","Freq")] #Alaska result
+     al <- filter (al, Freq == min(Freq))
+    # al <- al[1,]
+     
+     rank <- cbind (t(third), t(al))
+     colnames(rank) <- c("Third", "Alaska")
+     rownames(rank) <- c("State", as.character(ranking$category)[1])
+     rank
+}
+########################## End of ranking function
  
 ```
+
+
+
 
 Hospitals
 =====================================  
 
 
+
 Row {.tabset .tabset-fade}
 -------------------------------------
-
-
-### Overall Rating
-
-```{r, fig.width=12}
-graph("Overall_rating")
-```
 
 ### Overall Rating in %
 
@@ -114,23 +144,36 @@ graph("Overall_rating")
 graph_perc("Overall_rating")
 ```
 
+### Overall Rating
+
+```{r, fig.width=12}
+graph("Overall_rating") #%>% ggplotly() %>% layout(hovermode = 'compare')
+```
 
 
 Row {.tabset .tabset-fade}
 -------------------------------------
-
-### Mortality
-```{r, fig.width=12}
-graph("Mortality")
-```
 
 ### Mortality in %
 ```{r, fig.width=12}
 graph_perc("Mortality")
 ```
 
-Row 
+### Mortality
+```{r, fig.width=12}
+graph("Mortality")
+```
+
+
+
+Row  {.tabset .tabset-fade}
 -------------------------------------
+
+### Safety of Care in %
+
+```{r, fig.width=12}
+graph_perc("Safety_of_care")
+```
 
 
 ### Safety of Care
@@ -139,8 +182,14 @@ Row
 graph("Safety_of_care")
 ```
 
-Row 
+Row  {.tabset .tabset-fade}
 -------------------------------------
+
+### Readmission in %
+
+```{r, fig.width=12}
+graph_perc("Readmission")
+```
 
 ### Readmission
 
@@ -148,5 +197,164 @@ Row
 graph("Readmission")
 ```
 
-Nurses
+Row  {.tabset .tabset-fade}
+-------------------------------------
+
+### Patient experience in %
+
+```{r, fig.width=12}
+graph_perc("Patient_experience")
+```
+
+### Patient experience
+
+```{r, fig.width=12}
+graph("Patient_experience")
+```
+
+Row  {.tabset .tabset-fade}
+-------------------------------------
+
+### Effectiveness of Care in %
+
+```{r, fig.width=12}
+graph_perc("Effectiveness_of_Care")
+```
+
+### Effectiveness of Care in %
+
+```{r, fig.width=12}
+graph("Effectiveness_of_Care")
+```
+
+
+Row  {.tabset .tabset-fade}
+-------------------------------------
+
+### Timeliness of Care in %
+
+```{r, fig.width=12}
+graph_perc("Timeliness_of_Care")
+```
+
+### Timeliness of Care
+
+```{r, fig.width=12}
+graph("Timeliness_of_Care")
+```
+
+Row  {.tabset .tabset-fade}
+-------------------------------------
+
+### Efficient use of medical imaging in %
+
+```{r, fig.width=12}
+graph_perc("Medical_imaging")
+```
+
+### Efficient use of medical imaging 
+
+```{r, fig.width=12}
+graph("Medical_imaging")
+```
+
+
+Physicians
 =====================================  
+
+```{r}
+ph1 <- read.csv("physician.csv")
+graph_ph <- function (title, data = ph1) {
+     ph1 <- data
+     tmp <- filter(ph1, measure_title == title) %>% 
+          group_by(state) %>% 
+          summarise(performance = mean(measure_performance_rate, na.rm = TRUE)) %>% 
+          droplevels(.)
+     
+     tmp$performance <- coalesce(tmp$performance, 0) #remove of NAs
+     
+     third <- levels(reorder(tmp$state, -tmp$performance))[3]
+     third <- filter(tmp, state == third)
+     
+     ggplot(tmp, aes(x=reorder(state, -performance), y = performance)) +
+          geom_col(aes(fill = ifelse(state == "AL",1,0))) +
+          geom_hline(aes(yintercept = third$performance), color = "grey") +
+     #     geom_segment(x = 18, y = 28, xend = 18, yend = third$performance, col = "red") +
+          geom_text(data = filter(tmp, state == "AL"), aes(label = performance), vjust = 1.5) +
+          geom_text(data = filter(tmp, state == "AL"), aes(label = round(third$performance, digits = 0)), y = third$performance+1.5) +     
+          theme_minimal() + labs( x = "State", y = "Measure of performance") +
+          guides(fill=FALSE)
+}
+```
+
+Row 
+-------------------------------------
+
+### Attention to patient medicine cost
+
+```{r, fig.width=12}
+graph_ph("Attention to patient medicine cost." )
+```
+
+Row 
+-------------------------------------
+
+### Between visit communication
+
+```{r, fig.width=12}
+graph_ph("Between visit communication." )
+```
+
+Row 
+-------------------------------------
+
+### Clinicians working together for your care
+
+```{r, fig.width=12}
+graph_ph("Clinicians working together for your care." )
+```
+
+Row 
+-------------------------------------
+
+### Courteous and helpful office staff
+
+```{r, fig.width=12}
+graph_ph("Courteous and helpful office staff." )
+```
+
+Row 
+-------------------------------------
+
+### Getting timely care, appointments, and information
+
+```{r, fig.width=12}
+graph_ph("Getting timely care, appointments, and information." )
+```
+
+Row 
+-------------------------------------
+
+### Health promotion and education
+
+```{r, fig.width=12}
+graph_ph("Health promotion and education." )
+```
+
+Row 
+-------------------------------------
+
+### How well clinicians communicate
+
+```{r, fig.width=12}
+graph_ph("How well clinicians communicate." )
+```
+
+Row 
+-------------------------------------
+
+### Patients' rating of clinicians
+
+```{r, fig.width=12}
+graph_ph("Patients' rating of clinicians." )
+```

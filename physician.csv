@@ -1,0 +1,1001 @@
+"","state","measure_title","measure_performance_rate"
+"1","PA","Getting timely care, appointments, and information.",64
+"2","PA","Between visit communication.",53
+"3","PA","Attention to patient medicine cost.",27
+"4","PA","How well clinicians communicate.",89
+"5","PA","Patients' rating of clinicians.",87
+"6","PA","Health promotion and education.",60
+"7","PA","Courteous and helpful office staff.",84
+"8","PA","Clinicians working together for your care.",77
+"9","CA","Getting timely care, appointments, and information.",57
+"10","CA","Between visit communication.",58
+"11","CA","Attention to patient medicine cost.",21
+"12","CA","How well clinicians communicate.",82
+"13","CA","Patients' rating of clinicians.",81
+"14","CA","Health promotion and education.",60
+"15","CA","Courteous and helpful office staff.",85
+"16","CA","Clinicians working together for your care.",70
+"17","TX","Getting timely care, appointments, and information.",61
+"18","TX","Between visit communication.",65
+"19","TX","Attention to patient medicine cost.",24
+"20","TX","How well clinicians communicate.",82
+"21","TX","Patients' rating of clinicians.",79
+"22","TX","Health promotion and education.",70
+"23","TX","Courteous and helpful office staff.",79
+"24","TX","Clinicians working together for your care.",70
+"25","MO","Getting timely care, appointments, and information.",51
+"26","MO","Between visit communication.",59
+"27","MO","Attention to patient medicine cost.",36
+"28","MO","How well clinicians communicate.",81
+"29","MO","Patients' rating of clinicians.",80
+"30","MO","Health promotion and education.",64
+"31","MO","Courteous and helpful office staff.",77
+"32","MO","Clinicians working together for your care.",75
+"33","AR","Getting timely care, appointments, and information.",50
+"34","AR","Between visit communication.",57
+"35","AR","Attention to patient medicine cost.",26
+"36","AR","How well clinicians communicate.",76
+"37","AR","Patients' rating of clinicians.",67
+"38","AR","Health promotion and education.",49
+"39","AR","Courteous and helpful office staff.",86
+"40","AR","Clinicians working together for your care.",63
+"41","NC","Getting timely care, appointments, and information.",66
+"42","NC","Between visit communication.",52
+"43","NC","Attention to patient medicine cost.",22
+"44","NC","How well clinicians communicate.",83
+"45","NC","Patients' rating of clinicians.",83
+"46","NC","Health promotion and education.",58
+"47","NC","Courteous and helpful office staff.",88
+"48","NC","Clinicians working together for your care.",75
+"49","PA","Getting timely care, appointments, and information.",67
+"50","PA","Between visit communication.",58
+"51","PA","Attention to patient medicine cost.",24
+"52","PA","How well clinicians communicate.",85
+"53","PA","Patients' rating of clinicians.",84
+"54","PA","Health promotion and education.",61
+"55","PA","Courteous and helpful office staff.",84
+"56","PA","Clinicians working together for your care.",80
+"57","MA","Getting timely care, appointments, and information.",65
+"58","MA","Between visit communication.",51
+"59","MA","Attention to patient medicine cost.",26
+"60","MA","How well clinicians communicate.",85
+"61","MA","Patients' rating of clinicians.",83
+"62","MA","Health promotion and education.",69
+"63","MA","Courteous and helpful office staff.",81
+"64","MA","Clinicians working together for your care.",79
+"65","MI","Getting timely care, appointments, and information.",55
+"66","MI","Between visit communication.",62
+"67","MI","Attention to patient medicine cost.",28
+"68","MI","How well clinicians communicate.",83
+"69","MI","Patients' rating of clinicians.",80
+"70","MI","Health promotion and education.",68
+"71","MI","Courteous and helpful office staff.",79
+"72","MI","Clinicians working together for your care.",74
+"73","WI","Getting timely care, appointments, and information.",53
+"74","WI","Between visit communication.",51
+"75","WI","Attention to patient medicine cost.",24
+"76","WI","How well clinicians communicate.",77
+"77","WI","Patients' rating of clinicians.",76
+"78","WI","Health promotion and education.",66
+"79","WI","Courteous and helpful office staff.",79
+"80","WI","Clinicians working together for your care.",74
+"81","SD","Getting timely care, appointments, and information.",65
+"82","SD","Between visit communication.",60
+"83","SD","Attention to patient medicine cost.",26
+"84","SD","How well clinicians communicate.",79
+"85","SD","Patients' rating of clinicians.",75
+"86","SD","Health promotion and education.",63
+"87","SD","Courteous and helpful office staff.",87
+"88","SD","Clinicians working together for your care.",79
+"89","IA","Getting timely care, appointments, and information.",61
+"90","IA","Between visit communication.",56
+"91","IA","Attention to patient medicine cost.",33
+"92","IA","How well clinicians communicate.",83
+"93","IA","Patients' rating of clinicians.",82
+"94","IA","Health promotion and education.",63
+"95","IA","Courteous and helpful office staff.",84
+"96","IA","Clinicians working together for your care.",74
+"97","NY","Getting timely care, appointments, and information.",54
+"98","NY","Between visit communication.",50
+"99","NY","Attention to patient medicine cost.",20
+"100","NY","How well clinicians communicate.",NA
+"101","NY","Patients' rating of clinicians.",74
+"102","NY","Health promotion and education.",62
+"103","NY","Courteous and helpful office staff.",80
+"104","NY","Clinicians working together for your care.",71
+"105","OH","Getting timely care, appointments, and information.",69
+"106","OH","Between visit communication.",57
+"107","OH","Attention to patient medicine cost.",30
+"108","OH","How well clinicians communicate.",87
+"109","OH","Patients' rating of clinicians.",85
+"110","OH","Health promotion and education.",61
+"111","OH","Courteous and helpful office staff.",85
+"112","OH","Clinicians working together for your care.",77
+"113","OH","Getting timely care, appointments, and information.",59
+"114","OH","Between visit communication.",49
+"115","OH","Attention to patient medicine cost.",35
+"116","OH","How well clinicians communicate.",85
+"117","OH","Patients' rating of clinicians.",85
+"118","OH","Health promotion and education.",57
+"119","OH","Courteous and helpful office staff.",76
+"120","OH","Clinicians working together for your care.",73
+"121","FL","Getting timely care, appointments, and information.",63
+"122","FL","Between visit communication.",56
+"123","FL","Attention to patient medicine cost.",32
+"124","FL","How well clinicians communicate.",86
+"125","FL","Patients' rating of clinicians.",86
+"126","FL","Health promotion and education.",64
+"127","FL","Courteous and helpful office staff.",90
+"128","FL","Clinicians working together for your care.",78
+"129","WI","Getting timely care, appointments, and information.",56
+"130","WI","Between visit communication.",61
+"131","WI","Attention to patient medicine cost.",27
+"132","WI","How well clinicians communicate.",85
+"133","WI","Patients' rating of clinicians.",84
+"134","WI","Health promotion and education.",60
+"135","WI","Courteous and helpful office staff.",85
+"136","WI","Clinicians working together for your care.",81
+"137","SD","Getting timely care, appointments, and information.",61
+"138","SD","Between visit communication.",62
+"139","SD","Attention to patient medicine cost.",35
+"140","SD","How well clinicians communicate.",83
+"141","SD","Patients' rating of clinicians.",81
+"142","SD","Health promotion and education.",61
+"143","SD","Courteous and helpful office staff.",86
+"144","SD","Clinicians working together for your care.",76
+"145","AZ","Getting timely care, appointments, and information.",NA
+"146","AZ","Between visit communication.",NA
+"147","AZ","Attention to patient medicine cost.",21
+"148","AZ","How well clinicians communicate.",NA
+"149","AZ","Patients' rating of clinicians.",NA
+"150","AZ","Health promotion and education.",58
+"151","AZ","Courteous and helpful office staff.",NA
+"152","AZ","Clinicians working together for your care.",NA
+"153","GA","Getting timely care, appointments, and information.",64
+"154","GA","Between visit communication.",58
+"155","GA","Attention to patient medicine cost.",36
+"156","GA","How well clinicians communicate.",86
+"157","GA","Patients' rating of clinicians.",89
+"158","GA","Health promotion and education.",64
+"159","GA","Courteous and helpful office staff.",83
+"160","GA","Clinicians working together for your care.",80
+"161","FL","Getting timely care, appointments, and information.",55
+"162","FL","Between visit communication.",63
+"163","FL","Attention to patient medicine cost.",27
+"164","FL","How well clinicians communicate.",81
+"165","FL","Patients' rating of clinicians.",81
+"166","FL","Health promotion and education.",61
+"167","FL","Courteous and helpful office staff.",68
+"168","FL","Clinicians working together for your care.",72
+"169","CA","Getting timely care, appointments, and information.",58
+"170","CA","Between visit communication.",58
+"171","CA","Attention to patient medicine cost.",25
+"172","CA","How well clinicians communicate.",82
+"173","CA","Patients' rating of clinicians.",75
+"174","CA","Health promotion and education.",60
+"175","CA","Courteous and helpful office staff.",81
+"176","CA","Clinicians working together for your care.",71
+"177","GA","Getting timely care, appointments, and information.",57
+"178","GA","Between visit communication.",54
+"179","GA","Attention to patient medicine cost.",28
+"180","GA","How well clinicians communicate.",85
+"181","GA","Patients' rating of clinicians.",85
+"182","GA","Health promotion and education.",50
+"183","GA","Courteous and helpful office staff.",83
+"184","GA","Clinicians working together for your care.",76
+"185","MI","Getting timely care, appointments, and information.",60
+"186","MI","Between visit communication.",65
+"187","MI","Attention to patient medicine cost.",NA
+"188","MI","How well clinicians communicate.",77
+"189","MI","Patients' rating of clinicians.",NA
+"190","MI","Health promotion and education.",72
+"191","MI","Courteous and helpful office staff.",79
+"192","MI","Clinicians working together for your care.",74
+"193","CA","Getting timely care, appointments, and information.",64
+"194","CA","Between visit communication.",55
+"195","CA","Attention to patient medicine cost.",26
+"196","CA","How well clinicians communicate.",85
+"197","CA","Patients' rating of clinicians.",89
+"198","CA","Health promotion and education.",58
+"199","CA","Courteous and helpful office staff.",80
+"200","CA","Clinicians working together for your care.",77
+"201","RI","Getting timely care, appointments, and information.",72
+"202","RI","Between visit communication.",56
+"203","RI","Attention to patient medicine cost.",25
+"204","RI","How well clinicians communicate.",85
+"205","RI","Patients' rating of clinicians.",84
+"206","RI","Health promotion and education.",69
+"207","RI","Courteous and helpful office staff.",81
+"208","RI","Clinicians working together for your care.",75
+"209","WA","Getting timely care, appointments, and information.",60
+"210","WA","Between visit communication.",61
+"211","WA","Attention to patient medicine cost.",26
+"212","WA","How well clinicians communicate.",87
+"213","WA","Patients' rating of clinicians.",86
+"214","WA","Health promotion and education.",62
+"215","WA","Courteous and helpful office staff.",84
+"216","WA","Clinicians working together for your care.",82
+"217","KS","Getting timely care, appointments, and information.",61
+"218","KS","Between visit communication.",57
+"219","KS","Attention to patient medicine cost.",32
+"220","KS","How well clinicians communicate.",81
+"221","KS","Patients' rating of clinicians.",78
+"222","KS","Health promotion and education.",54
+"223","KS","Courteous and helpful office staff.",82
+"224","KS","Clinicians working together for your care.",78
+"225","MS","Getting timely care, appointments, and information.",69
+"226","MS","Between visit communication.",56
+"227","MS","Attention to patient medicine cost.",39
+"228","MS","How well clinicians communicate.",88
+"229","MS","Patients' rating of clinicians.",87
+"230","MS","Health promotion and education.",61
+"231","MS","Courteous and helpful office staff.",84
+"232","MS","Clinicians working together for your care.",81
+"233","CA","Getting timely care, appointments, and information.",NA
+"234","CA","Between visit communication.",53
+"235","CA","Attention to patient medicine cost.",21
+"236","CA","How well clinicians communicate.",73
+"237","CA","Patients' rating of clinicians.",69
+"238","CA","Health promotion and education.",48
+"239","CA","Courteous and helpful office staff.",76
+"240","CA","Clinicians working together for your care.",65
+"241","MI","Getting timely care, appointments, and information.",47
+"242","MI","Between visit communication.",62
+"243","MI","Attention to patient medicine cost.",24
+"244","MI","How well clinicians communicate.",81
+"245","MI","Patients' rating of clinicians.",79
+"246","MI","Health promotion and education.",61
+"247","MI","Courteous and helpful office staff.",76
+"248","MI","Clinicians working together for your care.",76
+"249","TN","Getting timely care, appointments, and information.",55
+"250","TN","Between visit communication.",52
+"251","TN","Attention to patient medicine cost.",35
+"252","TN","How well clinicians communicate.",86
+"253","TN","Patients' rating of clinicians.",87
+"254","TN","Health promotion and education.",63
+"255","TN","Courteous and helpful office staff.",82
+"256","TN","Clinicians working together for your care.",77
+"257","FL","Getting timely care, appointments, and information.",60
+"258","FL","Between visit communication.",59
+"259","FL","Attention to patient medicine cost.",36
+"260","FL","How well clinicians communicate.",85
+"261","FL","Patients' rating of clinicians.",84
+"262","FL","Health promotion and education.",66
+"263","FL","Courteous and helpful office staff.",88
+"264","FL","Clinicians working together for your care.",77
+"265","VA","Getting timely care, appointments, and information.",61
+"266","VA","Between visit communication.",67
+"267","VA","Attention to patient medicine cost.",32
+"268","VA","How well clinicians communicate.",84
+"269","VA","Patients' rating of clinicians.",85
+"270","VA","Health promotion and education.",67
+"271","VA","Courteous and helpful office staff.",80
+"272","VA","Clinicians working together for your care.",77
+"273","WI","Getting timely care, appointments, and information.",61
+"274","WI","Between visit communication.",53
+"275","WI","Attention to patient medicine cost.",23
+"276","WI","How well clinicians communicate.",78
+"277","WI","Patients' rating of clinicians.",74
+"278","WI","Health promotion and education.",64
+"279","WI","Courteous and helpful office staff.",85
+"280","WI","Clinicians working together for your care.",75
+"281","OR","Getting timely care, appointments, and information.",55
+"282","OR","Between visit communication.",67
+"283","OR","Attention to patient medicine cost.",23
+"284","OR","How well clinicians communicate.",80
+"285","OR","Patients' rating of clinicians.",82
+"286","OR","Health promotion and education.",60
+"287","OR","Courteous and helpful office staff.",82
+"288","OR","Clinicians working together for your care.",77
+"289","NJ","Getting timely care, appointments, and information.",54
+"290","NJ","Between visit communication.",50
+"291","NJ","Attention to patient medicine cost.",28
+"292","NJ","How well clinicians communicate.",87
+"293","NJ","Patients' rating of clinicians.",84
+"294","NJ","Health promotion and education.",67
+"295","NJ","Courteous and helpful office staff.",83
+"296","NJ","Clinicians working together for your care.",74
+"297","FL","Getting timely care, appointments, and information.",59
+"298","FL","Between visit communication.",48
+"299","FL","Attention to patient medicine cost.",24
+"300","FL","How well clinicians communicate.",84
+"301","FL","Patients' rating of clinicians.",83
+"302","FL","Health promotion and education.",59
+"303","FL","Courteous and helpful office staff.",79
+"304","FL","Clinicians working together for your care.",76
+"305","NC","Getting timely care, appointments, and information.",NA
+"306","NC","Between visit communication.",38
+"307","NC","Attention to patient medicine cost.",31
+"308","NC","How well clinicians communicate.",NA
+"309","NC","Patients' rating of clinicians.",NA
+"310","NC","Health promotion and education.",59
+"311","NC","Courteous and helpful office staff.",84
+"312","NC","Clinicians working together for your care.",71
+"313","OK","Getting timely care, appointments, and information.",61
+"314","OK","Between visit communication.",57
+"315","OK","Attention to patient medicine cost.",23
+"316","OK","How well clinicians communicate.",82
+"317","OK","Patients' rating of clinicians.",75
+"318","OK","Health promotion and education.",59
+"319","OK","Courteous and helpful office staff.",82
+"320","NC","Patients' rating of clinicians.",87
+"321","OK","Clinicians working together for your care.",77
+"322","NY","Getting timely care, appointments, and information.",55
+"323","NY","Between visit communication.",58
+"324","NY","Attention to patient medicine cost.",21
+"325","NY","How well clinicians communicate.",81
+"326","NY","Patients' rating of clinicians.",77
+"327","NY","Health promotion and education.",52
+"328","NY","Courteous and helpful office staff.",78
+"329","NY","Clinicians working together for your care.",NA
+"330","OH","Getting timely care, appointments, and information.",64
+"331","OH","Between visit communication.",54
+"332","OH","Attention to patient medicine cost.",28
+"333","OH","How well clinicians communicate.",84
+"334","OH","Patients' rating of clinicians.",83
+"335","OH","Health promotion and education.",58
+"336","OH","Courteous and helpful office staff.",85
+"337","OH","Clinicians working together for your care.",78
+"338","NJ","Getting timely care, appointments, and information.",60
+"339","NJ","Between visit communication.",62
+"340","NJ","Attention to patient medicine cost.",26
+"341","NJ","How well clinicians communicate.",88
+"342","NJ","Patients' rating of clinicians.",87
+"343","NJ","Health promotion and education.",69
+"344","NJ","Courteous and helpful office staff.",83
+"345","NJ","Clinicians working together for your care.",75
+"346","TX","Getting timely care, appointments, and information.",58
+"347","TX","Between visit communication.",63
+"348","TX","Attention to patient medicine cost.",24
+"349","TX","How well clinicians communicate.",83
+"350","TX","Patients' rating of clinicians.",80
+"351","TX","Health promotion and education.",58
+"352","TX","Courteous and helpful office staff.",81
+"353","TX","Clinicians working together for your care.",81
+"354","OH","Getting timely care, appointments, and information.",56
+"355","OH","Between visit communication.",51
+"356","OH","Attention to patient medicine cost.",31
+"357","OH","How well clinicians communicate.",83
+"358","OH","Patients' rating of clinicians.",83
+"359","OH","Health promotion and education.",65
+"360","OH","Courteous and helpful office staff.",82
+"361","OH","Clinicians working together for your care.",77
+"362","KY","Getting timely care, appointments, and information.",65
+"363","KY","Between visit communication.",58
+"364","KY","Attention to patient medicine cost.",33
+"365","KY","How well clinicians communicate.",85
+"366","KY","Patients' rating of clinicians.",80
+"367","KY","Health promotion and education.",55
+"368","KY","Courteous and helpful office staff.",80
+"369","KY","Clinicians working together for your care.",69
+"370","NC","Getting timely care, appointments, and information.",70
+"371","NC","Between visit communication.",56
+"372","NC","Attention to patient medicine cost.",30
+"373","NC","How well clinicians communicate.",84
+"374","NC","Patients' rating of clinicians.",86
+"375","NC","Health promotion and education.",66
+"376","NC","Courteous and helpful office staff.",90
+"377","NC","Clinicians working together for your care.",79
+"378","WI","Getting timely care, appointments, and information.",55
+"379","WI","Between visit communication.",58
+"380","WI","Attention to patient medicine cost.",25
+"381","WI","How well clinicians communicate.",80
+"382","WI","Patients' rating of clinicians.",76
+"383","WI","Health promotion and education.",55
+"384","WI","Courteous and helpful office staff.",79
+"385","WI","Clinicians working together for your care.",75
+"386","NY","Getting timely care, appointments, and information.",62
+"387","NY","Between visit communication.",50
+"388","NY","Attention to patient medicine cost.",24
+"389","NY","How well clinicians communicate.",86
+"390","NY","Patients' rating of clinicians.",83
+"391","NY","Health promotion and education.",56
+"392","NY","Courteous and helpful office staff.",84
+"393","NY","Clinicians working together for your care.",77
+"394","AL","Getting timely care, appointments, and information.",74
+"395","AL","Between visit communication.",NA
+"396","AL","Attention to patient medicine cost.",NA
+"397","AL","How well clinicians communicate.",NA
+"398","AL","Patients' rating of clinicians.",NA
+"399","AL","Health promotion and education.",NA
+"400","AL","Courteous and helpful office staff.",NA
+"401","AL","Clinicians working together for your care.",NA
+"402","TX","Getting timely care, appointments, and information.",55
+"403","TX","Between visit communication.",62
+"404","TX","Attention to patient medicine cost.",36
+"405","TX","How well clinicians communicate.",80
+"406","TX","Patients' rating of clinicians.",77
+"407","TX","Health promotion and education.",60
+"408","TX","Courteous and helpful office staff.",83
+"409","TX","Clinicians working together for your care.",74
+"410","TN","Getting timely care, appointments, and information.",63
+"411","TN","Between visit communication.",55
+"412","TN","Attention to patient medicine cost.",32
+"413","TN","How well clinicians communicate.",86
+"414","TN","Patients' rating of clinicians.",84
+"415","TN","Health promotion and education.",56
+"416","TN","Courteous and helpful office staff.",87
+"417","TN","Clinicians working together for your care.",78
+"418","UT","Getting timely care, appointments, and information.",63
+"419","UT","Between visit communication.",59
+"420","UT","Attention to patient medicine cost.",38
+"421","UT","How well clinicians communicate.",84
+"422","UT","Patients' rating of clinicians.",83
+"423","UT","Health promotion and education.",65
+"424","UT","Courteous and helpful office staff.",85
+"425","UT","Clinicians working together for your care.",80
+"426","WI","Getting timely care, appointments, and information.",56
+"427","WI","Between visit communication.",74
+"428","WI","Attention to patient medicine cost.",22
+"429","WI","How well clinicians communicate.",83
+"430","WI","Patients' rating of clinicians.",79
+"431","WI","Health promotion and education.",62
+"432","WI","Courteous and helpful office staff.",85
+"433","WI","Clinicians working together for your care.",74
+"434","IN","Getting timely care, appointments, and information.",56
+"435","IN","Between visit communication.",47
+"436","IN","Attention to patient medicine cost.",28
+"437","IN","How well clinicians communicate.",77
+"438","IN","Patients' rating of clinicians.",79
+"439","IN","Health promotion and education.",55
+"440","IN","Courteous and helpful office staff.",83
+"441","IN","Clinicians working together for your care.",75
+"442","MS","Getting timely care, appointments, and information.",62
+"443","MS","Between visit communication.",51
+"444","MS","Attention to patient medicine cost.",35
+"445","MS","How well clinicians communicate.",84
+"446","MS","Patients' rating of clinicians.",86
+"447","MS","Health promotion and education.",54
+"448","MS","Courteous and helpful office staff.",78
+"449","MS","Clinicians working together for your care.",82
+"450","CA","Getting timely care, appointments, and information.",46
+"451","CA","Between visit communication.",57
+"452","CA","Attention to patient medicine cost.",21
+"453","CA","How well clinicians communicate.",NA
+"454","CA","Patients' rating of clinicians.",NA
+"455","CA","Health promotion and education.",58
+"456","CA","Courteous and helpful office staff.",75
+"457","CA","Clinicians working together for your care.",71
+"458","NC","Getting timely care, appointments, and information.",69
+"459","NC","Between visit communication.",68
+"460","NC","Attention to patient medicine cost.",26
+"461","NC","How well clinicians communicate.",86
+"462","NC","Health promotion and education.",66
+"463","NC","Courteous and helpful office staff.",82
+"464","NC","Clinicians working together for your care.",83
+"465","ME","Getting timely care, appointments, and information.",43
+"466","ME","Between visit communication.",55
+"467","ME","Attention to patient medicine cost.",22
+"468","ME","How well clinicians communicate.",76
+"469","ME","Patients' rating of clinicians.",77
+"470","ME","Health promotion and education.",65
+"471","ME","Courteous and helpful office staff.",80
+"472","ME","Clinicians working together for your care.",72
+"473","NC","Getting timely care, appointments, and information.",64
+"474","NC","Between visit communication.",63
+"475","NC","Attention to patient medicine cost.",31
+"476","NC","How well clinicians communicate.",84
+"477","NC","Patients' rating of clinicians.",85
+"478","NC","Health promotion and education.",64
+"479","NC","Courteous and helpful office staff.",86
+"480","NC","Clinicians working together for your care.",80
+"481","MT","Getting timely care, appointments, and information.",62
+"482","MT","Between visit communication.",59
+"483","MT","Attention to patient medicine cost.",28
+"484","MT","How well clinicians communicate.",83
+"485","MT","Patients' rating of clinicians.",82
+"486","MT","Health promotion and education.",58
+"487","MT","Courteous and helpful office staff.",83
+"488","MT","Clinicians working together for your care.",73
+"489","NY","Getting timely care, appointments, and information.",62
+"490","NY","Between visit communication.",54
+"491","NY","Attention to patient medicine cost.",23
+"492","NY","How well clinicians communicate.",83
+"493","NY","Patients' rating of clinicians.",83
+"494","NY","Health promotion and education.",62
+"495","NY","Courteous and helpful office staff.",81
+"496","NY","Clinicians working together for your care.",75
+"497","FL","Getting timely care, appointments, and information.",64
+"498","FL","Between visit communication.",54
+"499","FL","Attention to patient medicine cost.",27
+"500","FL","How well clinicians communicate.",81
+"501","FL","Patients' rating of clinicians.",82
+"502","FL","Health promotion and education.",68
+"503","FL","Courteous and helpful office staff.",86
+"504","FL","Clinicians working together for your care.",75
+"505","ME","Getting timely care, appointments, and information.",59
+"506","ME","Between visit communication.",61
+"507","ME","Attention to patient medicine cost.",26
+"508","FL","How well clinicians communicate.",82
+"509","ME","How well clinicians communicate.",83
+"510","ME","Patients' rating of clinicians.",81
+"511","ME","Health promotion and education.",61
+"512","ME","Courteous and helpful office staff.",84
+"513","ME","Clinicians working together for your care.",73
+"514","MO","Getting timely care, appointments, and information.",56
+"515","MO","Between visit communication.",63
+"516","MO","Attention to patient medicine cost.",24
+"517","MO","How well clinicians communicate.",NA
+"518","MO","Patients' rating of clinicians.",NA
+"519","MO","Health promotion and education.",64
+"520","MO","Courteous and helpful office staff.",76
+"521","MO","Clinicians working together for your care.",77
+"522","NY","Getting timely care, appointments, and information.",64
+"523","NY","Between visit communication.",55
+"524","NY","Attention to patient medicine cost.",21
+"525","NY","How well clinicians communicate.",87
+"526","NY","Patients' rating of clinicians.",86
+"527","NY","Health promotion and education.",62
+"528","NY","Courteous and helpful office staff.",82
+"529","NY","Clinicians working together for your care.",78
+"530","TX","Getting timely care, appointments, and information.",53
+"531","TX","Between visit communication.",55
+"532","TX","Attention to patient medicine cost.",37
+"533","TX","How well clinicians communicate.",84
+"534","TX","Patients' rating of clinicians.",81
+"535","TX","Health promotion and education.",58
+"536","TX","Courteous and helpful office staff.",75
+"537","TX","Clinicians working together for your care.",74
+"538","MN","Getting timely care, appointments, and information.",60
+"539","MN","Between visit communication.",50
+"540","MN","Attention to patient medicine cost.",23
+"541","MN","How well clinicians communicate.",81
+"542","MN","Patients' rating of clinicians.",81
+"543","MN","Health promotion and education.",55
+"544","MN","Courteous and helpful office staff.",85
+"545","MN","Clinicians working together for your care.",79
+"546","OR","Getting timely care, appointments, and information.",67
+"547","OR","Between visit communication.",51
+"548","OR","Attention to patient medicine cost.",24
+"549","OR","How well clinicians communicate.",81
+"550","OR","Patients' rating of clinicians.",80
+"551","OR","Health promotion and education.",55
+"552","OR","Courteous and helpful office staff.",82
+"553","OR","Clinicians working together for your care.",77
+"554","FL","Getting timely care, appointments, and information.",59
+"555","FL","Between visit communication.",51
+"556","FL","Attention to patient medicine cost.",29
+"557","FL","Patients' rating of clinicians.",82
+"558","FL","Health promotion and education.",61
+"559","FL","Courteous and helpful office staff.",87
+"560","FL","Clinicians working together for your care.",78
+"561","TX","Getting timely care, appointments, and information.",69
+"562","TX","Between visit communication.",61
+"563","TX","Attention to patient medicine cost.",37
+"564","TX","How well clinicians communicate.",84
+"565","TX","Patients' rating of clinicians.",77
+"566","TX","Health promotion and education.",60
+"567","TX","Courteous and helpful office staff.",83
+"568","TX","Clinicians working together for your care.",76
+"569","WI","Getting timely care, appointments, and information.",60
+"570","WI","Between visit communication.",59
+"571","WI","Attention to patient medicine cost.",29
+"572","WI","How well clinicians communicate.",80
+"573","WI","Patients' rating of clinicians.",75
+"574","WI","Health promotion and education.",58
+"575","WI","Courteous and helpful office staff.",80
+"576","WI","Clinicians working together for your care.",75
+"577","IA","Getting timely care, appointments, and information.",63
+"578","IA","Between visit communication.",NA
+"579","IA","Attention to patient medicine cost.",NA
+"580","IA","How well clinicians communicate.",NA
+"581","IA","Patients' rating of clinicians.",NA
+"582","IA","Health promotion and education.",NA
+"583","IA","Courteous and helpful office staff.",86
+"584","IA","Clinicians working together for your care.",NA
+"585","MO","Getting timely care, appointments, and information.",68
+"586","MO","Between visit communication.",49
+"587","MO","Attention to patient medicine cost.",26
+"588","MO","How well clinicians communicate.",87
+"589","MO","Patients' rating of clinicians.",88
+"590","MO","Health promotion and education.",65
+"591","MO","Courteous and helpful office staff.",84
+"592","MO","Clinicians working together for your care.",80
+"593","MI","Getting timely care, appointments, and information.",62
+"594","MI","Between visit communication.",60
+"595","MI","Attention to patient medicine cost.",36
+"596","MI","How well clinicians communicate.",84
+"597","MI","Patients' rating of clinicians.",84
+"598","MI","Health promotion and education.",65
+"599","MI","Courteous and helpful office staff.",78
+"600","MI","Clinicians working together for your care.",79
+"601","NY","Getting timely care, appointments, and information.",63
+"602","NY","Between visit communication.",43
+"603","NY","Attention to patient medicine cost.",21
+"604","NY","How well clinicians communicate.",86
+"605","NY","Patients' rating of clinicians.",86
+"606","NY","Health promotion and education.",65
+"607","NY","Courteous and helpful office staff.",80
+"608","NY","Clinicians working together for your care.",72
+"609","TX","Getting timely care, appointments, and information.",NA
+"610","TX","Between visit communication.",61
+"611","TX","Attention to patient medicine cost.",28
+"612","TX","How well clinicians communicate.",80
+"613","TX","Patients' rating of clinicians.",76
+"614","TX","Health promotion and education.",58
+"615","TX","Courteous and helpful office staff.",85
+"616","TX","Clinicians working together for your care.",76
+"617","MN","Getting timely care, appointments, and information.",58
+"618","MN","Between visit communication.",67
+"619","MN","Attention to patient medicine cost.",23
+"620","MN","How well clinicians communicate.",80
+"621","MN","Patients' rating of clinicians.",81
+"622","MN","Health promotion and education.",57
+"623","MN","Courteous and helpful office staff.",81
+"624","MN","Clinicians working together for your care.",73
+"625","OK","Getting timely care, appointments, and information.",NA
+"626","OK","Between visit communication.",58
+"627","OK","Attention to patient medicine cost.",10
+"628","OK","How well clinicians communicate.",79
+"629","OK","Patients' rating of clinicians.",76
+"630","OK","Health promotion and education.",60
+"631","OK","Courteous and helpful office staff.",80
+"632","OK","Clinicians working together for your care.",66
+"633","WI","Getting timely care, appointments, and information.",60
+"634","WI","Between visit communication.",71
+"635","WI","Attention to patient medicine cost.",25
+"636","WI","How well clinicians communicate.",83
+"637","WI","Patients' rating of clinicians.",82
+"638","WI","Health promotion and education.",63
+"639","WI","Courteous and helpful office staff.",83
+"640","WI","Clinicians working together for your care.",80
+"641","OK","Getting timely care, appointments, and information.",59
+"642","OK","Between visit communication.",56
+"643","OK","Attention to patient medicine cost.",32
+"644","OK","How well clinicians communicate.",84
+"645","OK","Patients' rating of clinicians.",84
+"646","OK","Health promotion and education.",60
+"647","OK","Courteous and helpful office staff.",86
+"648","OK","Clinicians working together for your care.",76
+"649","IN","Getting timely care, appointments, and information.",63
+"650","IN","Between visit communication.",61
+"651","IN","Attention to patient medicine cost.",35
+"652","IN","How well clinicians communicate.",83
+"653","IN","Patients' rating of clinicians.",80
+"654","IN","Health promotion and education.",62
+"655","IN","Courteous and helpful office staff.",83
+"656","IN","Clinicians working together for your care.",75
+"657","UT","Getting timely care, appointments, and information.",54
+"658","UT","Between visit communication.",55
+"659","UT","Attention to patient medicine cost.",34
+"660","UT","How well clinicians communicate.",82
+"661","UT","Patients' rating of clinicians.",83
+"662","UT","Health promotion and education.",63
+"663","UT","Courteous and helpful office staff.",82
+"664","UT","Clinicians working together for your care.",77
+"665","MS","Getting timely care, appointments, and information.",58
+"666","MS","Between visit communication.",51
+"667","MS","Attention to patient medicine cost.",34
+"668","MS","How well clinicians communicate.",85
+"669","MS","Patients' rating of clinicians.",82
+"670","MS","Health promotion and education.",60
+"671","MS","Courteous and helpful office staff.",84
+"672","MS","Clinicians working together for your care.",81
+"673","WI","Getting timely care, appointments, and information.",57
+"674","WI","Between visit communication.",68
+"675","WI","Attention to patient medicine cost.",26
+"676","WI","How well clinicians communicate.",81
+"677","WI","Patients' rating of clinicians.",79
+"678","WI","Health promotion and education.",68
+"679","WI","Courteous and helpful office staff.",80
+"680","WI","Clinicians working together for your care.",80
+"681","MO","Getting timely care, appointments, and information.",NA
+"682","MO","Between visit communication.",47
+"683","MO","Attention to patient medicine cost.",23
+"684","MO","How well clinicians communicate.",79
+"685","MO","Patients' rating of clinicians.",77
+"686","MO","Health promotion and education.",55
+"687","MO","Courteous and helpful office staff.",81
+"688","MO","Clinicians working together for your care.",73
+"689","OH","Getting timely care, appointments, and information.",63
+"690","OH","Between visit communication.",47
+"691","OH","Attention to patient medicine cost.",23
+"692","OH","How well clinicians communicate.",80
+"693","OH","Patients' rating of clinicians.",77
+"694","OH","Health promotion and education.",55
+"695","OH","Courteous and helpful office staff.",82
+"696","OH","Clinicians working together for your care.",72
+"697","MN","Getting timely care, appointments, and information.",53
+"698","MN","Between visit communication.",71
+"699","MN","Attention to patient medicine cost.",24
+"700","MN","How well clinicians communicate.",83
+"701","MN","Patients' rating of clinicians.",80
+"702","MN","Health promotion and education.",66
+"703","MN","Courteous and helpful office staff.",83
+"704","MN","Clinicians working together for your care.",77
+"705","AL","Getting timely care, appointments, and information.",52
+"706","AL","Between visit communication.",55
+"707","AL","Attention to patient medicine cost.",28
+"708","AL","How well clinicians communicate.",83
+"709","AL","Patients' rating of clinicians.",83
+"710","AL","Health promotion and education.",65
+"711","AL","Courteous and helpful office staff.",87
+"712","AL","Clinicians working together for your care.",75
+"713","KS","Getting timely care, appointments, and information.",61
+"714","KS","Between visit communication.",53
+"715","KS","Attention to patient medicine cost.",33
+"716","KS","How well clinicians communicate.",84
+"717","KS","Patients' rating of clinicians.",82
+"718","KS","Health promotion and education.",65
+"719","KS","Courteous and helpful office staff.",82
+"720","KS","Clinicians working together for your care.",75
+"721","NE","Getting timely care, appointments, and information.",48
+"722","NE","Between visit communication.",46
+"723","NE","Attention to patient medicine cost.",30
+"724","NE","How well clinicians communicate.",78
+"725","NE","Patients' rating of clinicians.",76
+"726","NE","Health promotion and education.",54
+"727","NE","Courteous and helpful office staff.",72
+"728","NE","Clinicians working together for your care.",72
+"729","ME","Getting timely care, appointments, and information.",61
+"730","ME","Between visit communication.",53
+"731","ME","Attention to patient medicine cost.",22
+"732","ME","How well clinicians communicate.",78
+"733","ME","Patients' rating of clinicians.",73
+"734","ME","Health promotion and education.",67
+"735","ME","Courteous and helpful office staff.",83
+"736","ME","Clinicians working together for your care.",74
+"737","PA","Getting timely care, appointments, and information.",66
+"738","PA","Between visit communication.",52
+"739","PA","Attention to patient medicine cost.",24
+"740","PA","How well clinicians communicate.",86
+"741","PA","Patients' rating of clinicians.",85
+"742","PA","Health promotion and education.",66
+"743","PA","Courteous and helpful office staff.",78
+"744","PA","Clinicians working together for your care.",73
+"745","PA","Getting timely care, appointments, and information.",63
+"746","PA","Between visit communication.",55
+"747","PA","Attention to patient medicine cost.",22
+"748","PA","How well clinicians communicate.",84
+"749","PA","Patients' rating of clinicians.",83
+"750","PA","Health promotion and education.",57
+"751","PA","Courteous and helpful office staff.",86
+"752","PA","Clinicians working together for your care.",78
+"753","KY","Getting timely care, appointments, and information.",61
+"754","KY","Between visit communication.",55
+"755","KY","Attention to patient medicine cost.",28
+"756","KY","How well clinicians communicate.",86
+"757","KY","Patients' rating of clinicians.",84
+"758","KY","Health promotion and education.",56
+"759","KY","Courteous and helpful office staff.",87
+"760","KY","Clinicians working together for your care.",78
+"761","WI","Getting timely care, appointments, and information.",66
+"762","WI","Between visit communication.",69
+"763","WI","Attention to patient medicine cost.",29
+"764","WI","How well clinicians communicate.",87
+"765","WI","Patients' rating of clinicians.",87
+"766","WI","Health promotion and education.",68
+"767","WI","Courteous and helpful office staff.",89
+"768","WI","Clinicians working together for your care.",83
+"769","IL","Getting timely care, appointments, and information.",56
+"770","IL","Between visit communication.",65
+"771","IL","Attention to patient medicine cost.",29
+"772","IL","How well clinicians communicate.",82
+"773","IL","Patients' rating of clinicians.",80
+"774","IL","Health promotion and education.",62
+"775","IL","Courteous and helpful office staff.",81
+"776","IL","Clinicians working together for your care.",79
+"777","IN","Getting timely care, appointments, and information.",54
+"778","IN","Between visit communication.",55
+"779","IN","Attention to patient medicine cost.",32
+"780","IN","How well clinicians communicate.",82
+"781","IN","Patients' rating of clinicians.",78
+"782","IN","Health promotion and education.",56
+"783","IN","Courteous and helpful office staff.",83
+"784","IN","Clinicians working together for your care.",77
+"785","FL","Getting timely care, appointments, and information.",62
+"786","FL","Between visit communication.",55
+"787","FL","Attention to patient medicine cost.",18
+"788","FL","How well clinicians communicate.",79
+"789","FL","Patients' rating of clinicians.",72
+"790","FL","Health promotion and education.",62
+"791","FL","Courteous and helpful office staff.",83
+"792","FL","Clinicians working together for your care.",73
+"793","MI","Getting timely care, appointments, and information.",65
+"794","MI","Between visit communication.",53
+"795","MI","Attention to patient medicine cost.",32
+"796","MI","How well clinicians communicate.",87
+"797","MI","Patients' rating of clinicians.",87
+"798","MI","Health promotion and education.",59
+"799","MI","Courteous and helpful office staff.",82
+"800","MI","Clinicians working together for your care.",78
+"801","PA","Getting timely care, appointments, and information.",63
+"802","PA","Between visit communication.",45
+"803","PA","Attention to patient medicine cost.",28
+"804","PA","How well clinicians communicate.",83
+"805","PA","Patients' rating of clinicians.",84
+"806","PA","Health promotion and education.",60
+"807","PA","Courteous and helpful office staff.",84
+"808","PA","Clinicians working together for your care.",76
+"809","OH","Getting timely care, appointments, and information.",67
+"810","OH","Between visit communication.",55
+"811","OH","Attention to patient medicine cost.",26
+"812","OH","How well clinicians communicate.",86
+"813","OH","Patients' rating of clinicians.",78
+"814","OH","Health promotion and education.",61
+"815","OH","Courteous and helpful office staff.",85
+"816","OH","Clinicians working together for your care.",76
+"817","VA","Getting timely care, appointments, and information.",NA
+"818","VA","Between visit communication.",NA
+"819","VA","Attention to patient medicine cost.",NA
+"820","VA","How well clinicians communicate.",85
+"821","VA","Patients' rating of clinicians.",84
+"822","VA","Health promotion and education.",55
+"823","VA","Courteous and helpful office staff.",84
+"824","VA","Clinicians working together for your care.",74
+"825","IL","Getting timely care, appointments, and information.",51
+"826","IL","Between visit communication.",60
+"827","IL","Attention to patient medicine cost.",29
+"828","IL","How well clinicians communicate.",82
+"829","IL","Patients' rating of clinicians.",80
+"830","IL","Health promotion and education.",63
+"831","IL","Courteous and helpful office staff.",77
+"832","IL","Clinicians working together for your care.",70
+"833","NC","Getting timely care, appointments, and information.",66
+"834","NC","Between visit communication.",61
+"835","NC","Attention to patient medicine cost.",30
+"836","NC","How well clinicians communicate.",86
+"837","NC","Patients' rating of clinicians.",85
+"838","NC","Health promotion and education.",58
+"839","NC","Courteous and helpful office staff.",87
+"840","NC","Clinicians working together for your care.",80
+"841","OK","Getting timely care, appointments, and information.",58
+"842","OK","Between visit communication.",58
+"843","OK","Attention to patient medicine cost.",30
+"844","OK","How well clinicians communicate.",86
+"845","OK","Patients' rating of clinicians.",81
+"846","OK","Health promotion and education.",62
+"847","OK","Courteous and helpful office staff.",89
+"848","OK","Clinicians working together for your care.",82
+"849","NY","Getting timely care, appointments, and information.",54
+"850","NY","Between visit communication.",47
+"851","NY","Attention to patient medicine cost.",25
+"852","NY","How well clinicians communicate.",85
+"853","NY","Patients' rating of clinicians.",83
+"854","NY","Health promotion and education.",66
+"855","NY","Courteous and helpful office staff.",79
+"856","NY","Clinicians working together for your care.",73
+"857","MA","Getting timely care, appointments, and information.",56
+"858","MA","Between visit communication.",53
+"859","MA","Attention to patient medicine cost.",18
+"860","MA","How well clinicians communicate.",84
+"861","MA","Patients' rating of clinicians.",78
+"862","MA","Health promotion and education.",68
+"863","MA","Courteous and helpful office staff.",79
+"864","MA","Clinicians working together for your care.",73
+"865","MS","Getting timely care, appointments, and information.",NA
+"866","MS","Between visit communication.",63
+"867","MS","Attention to patient medicine cost.",30
+"868","MS","How well clinicians communicate.",82
+"869","MS","Patients' rating of clinicians.",80
+"870","MS","Health promotion and education.",59
+"871","MS","Courteous and helpful office staff.",83
+"872","MS","Clinicians working together for your care.",81
+"873","MA","Getting timely care, appointments, and information.",63
+"874","MA","Between visit communication.",57
+"875","MA","Attention to patient medicine cost.",23
+"876","MA","How well clinicians communicate.",83
+"877","MA","Patients' rating of clinicians.",83
+"878","MA","Health promotion and education.",65
+"879","MA","Courteous and helpful office staff.",82
+"880","MA","Clinicians working together for your care.",76
+"881","MA","Getting timely care, appointments, and information.",62
+"882","MA","Between visit communication.",59
+"883","MA","Attention to patient medicine cost.",24
+"884","MA","How well clinicians communicate.",82
+"885","MA","Patients' rating of clinicians.",83
+"886","MA","Health promotion and education.",66
+"887","MA","Courteous and helpful office staff.",75
+"888","MA","Clinicians working together for your care.",72
+"889","MN","Getting timely care, appointments, and information.",NA
+"890","MN","Between visit communication.",NA
+"891","MN","Attention to patient medicine cost.",NA
+"892","MN","How well clinicians communicate.",NA
+"893","MN","Patients' rating of clinicians.",73
+"894","MN","Health promotion and education.",NA
+"895","MN","Courteous and helpful office staff.",88
+"896","MN","Clinicians working together for your care.",72
+"897","RI","Getting timely care, appointments, and information.",65
+"898","RI","Between visit communication.",50
+"899","RI","Attention to patient medicine cost.",26
+"900","RI","How well clinicians communicate.",85
+"901","RI","Patients' rating of clinicians.",81
+"902","RI","Health promotion and education.",64
+"903","RI","Courteous and helpful office staff.",85
+"904","RI","Clinicians working together for your care.",72
+"905","WI","Getting timely care, appointments, and information.",69
+"906","WI","Between visit communication.",60
+"907","WI","Attention to patient medicine cost.",20
+"908","WI","How well clinicians communicate.",83
+"909","WI","Patients' rating of clinicians.",82
+"910","WI","Health promotion and education.",60
+"911","WI","Courteous and helpful office staff.",84
+"912","WI","Clinicians working together for your care.",75
+"913","GA","Getting timely care, appointments, and information.",60
+"914","GA","Between visit communication.",64
+"915","GA","Attention to patient medicine cost.",29
+"916","GA","How well clinicians communicate.",79
+"917","GA","Patients' rating of clinicians.",74
+"918","GA","Health promotion and education.",62
+"919","GA","Courteous and helpful office staff.",83
+"920","GA","Clinicians working together for your care.",76
+"921","MI","Getting timely care, appointments, and information.",60
+"922","MI","Between visit communication.",63
+"923","MI","Attention to patient medicine cost.",30
+"924","MI","How well clinicians communicate.",81
+"925","MI","Patients' rating of clinicians.",79
+"926","MI","Health promotion and education.",63
+"927","MI","Courteous and helpful office staff.",84
+"928","MI","Clinicians working together for your care.",72
+"929","MD","Getting timely care, appointments, and information.",68
+"930","MD","Between visit communication.",59
+"931","MD","Attention to patient medicine cost.",23
+"932","MD","How well clinicians communicate.",87
+"933","MD","Patients' rating of clinicians.",84
+"934","MD","Health promotion and education.",67
+"935","MD","Courteous and helpful office staff.",86
+"936","MD","Clinicians working together for your care.",79
+"937","PA","Getting timely care, appointments, and information.",55
+"938","PA","Between visit communication.",58
+"939","PA","Attention to patient medicine cost.",23
+"940","PA","How well clinicians communicate.",85
+"941","PA","Patients' rating of clinicians.",82
+"942","PA","Health promotion and education.",59
+"943","PA","Courteous and helpful office staff.",80
+"944","PA","Clinicians working together for your care.",72
+"945","NH","Getting timely care, appointments, and information.",59
+"946","NH","Between visit communication.",60
+"947","NH","Attention to patient medicine cost.",29
+"948","NH","How well clinicians communicate.",84
+"949","NH","Patients' rating of clinicians.",84
+"950","NH","Health promotion and education.",66
+"951","NH","Courteous and helpful office staff.",80
+"952","NH","Clinicians working together for your care.",76
+"953","CO","Getting timely care, appointments, and information.",49
+"954","CO","Between visit communication.",77
+"955","CO","Attention to patient medicine cost.",21
+"956","CO","How well clinicians communicate.",80
+"957","CO","Patients' rating of clinicians.",76
+"958","CO","Health promotion and education.",64
+"959","CO","Courteous and helpful office staff.",79
+"960","CO","Clinicians working together for your care.",73
+"961","OK","Getting timely care, appointments, and information.",59
+"962","OK","Between visit communication.",61
+"963","OK","Attention to patient medicine cost.",25
+"964","OK","How well clinicians communicate.",86
+"965","OK","Patients' rating of clinicians.",87
+"966","OK","Health promotion and education.",60
+"967","OK","Courteous and helpful office staff.",88
+"968","OK","Clinicians working together for your care.",78
+"969","FL","Getting timely care, appointments, and information.",68
+"970","FL","Between visit communication.",NA
+"971","FL","Attention to patient medicine cost.",NA
+"972","FL","How well clinicians communicate.",NA
+"973","FL","Patients' rating of clinicians.",NA
+"974","FL","Health promotion and education.",NA
+"975","FL","Courteous and helpful office staff.",89
+"976","FL","Clinicians working together for your care.",NA
+"977","TN","Getting timely care, appointments, and information.",63
+"978","TN","Between visit communication.",54
+"979","TN","Attention to patient medicine cost.",32
+"980","TN","How well clinicians communicate.",85
+"981","TN","Patients' rating of clinicians.",83
+"982","TN","Health promotion and education.",63
+"983","TN","Courteous and helpful office staff.",84
+"984","TN","Clinicians working together for your care.",80
+"985","PA","Getting timely care, appointments, and information.",59
+"986","PA","Between visit communication.",63
+"987","PA","Attention to patient medicine cost.",NA
+"988","PA","How well clinicians communicate.",NA
+"989","PA","Patients' rating of clinicians.",NA
+"990","PA","Health promotion and education.",68
+"991","PA","Courteous and helpful office staff.",NA
+"992","PA","Clinicians working together for your care.",NA
+"993","WV","Getting timely care, appointments, and information.",53
+"994","WV","Between visit communication.",50
+"995","WV","Attention to patient medicine cost.",28
+"996","WV","How well clinicians communicate.",84
+"997","WV","Patients' rating of clinicians.",79
+"998","WV","Health promotion and education.",62
+"999","WV","Courteous and helpful office staff.",86
+"1000","WV","Clinicians working together for your care.",76

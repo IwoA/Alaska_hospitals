@@ -17,6 +17,7 @@ h1 <- h %>%
          'Medical_imaging' = efficient_use_of_medical_imaging_national_comparison
   ) 
 
+# write.csv(h1, "hospitals.csv", row.names = FALSE)
 
 #### Dataset in percentage
 
@@ -46,6 +47,7 @@ hospitals$category <- as.factor(hospitals$category)
 hospitals$state    <- as.factor(hospitals$state) 
 colnames(hospitals)[1] <- "Values"
 
+ write.csv(hospitals, "hospitals_perc.csv", row.names = FALSE)
 ### End of dataset in percentage
 
 
@@ -68,7 +70,11 @@ ggplot(tmp, aes(x=reorder(state, -above), y = Freq)) +
 
 #### Dataset in nominal values
 
+
 h2 <- h1
+h2 <- h2 %>% group_by(state) %>% count(Mortality)
+h2 <- group_by(state) %>% mutate(above = ifelse(Mortality=="Above the national average"), n, 0)
+
 h2 <- h2 %>%group_by(state) %>% 
   mutate(n = n())
 
@@ -77,7 +83,7 @@ for (i in 5:11) {  #correct order of levels
 }
 h2$Overall_rating <- factor(h2$Overall_rating, levels(h1$Overall_rating)[c(6, 1:5)]) #correct order of levels
  
-#write.csv(h2, "hospitals.csv", row.names = FALSE)
+
 
 ### End of dataset in  nominal values
 
