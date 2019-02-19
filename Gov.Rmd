@@ -1,0 +1,132 @@
+---
+title: "Quality of Healthcare"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    runtime: shiny
+---
+
+```{r global, include=FALSE}
+# load data in "global" chunk so it can be shared by all users of the dashboard
+library(dplyr)
+library(ggplot2)
+
+# h <- read.csv("https://data.medicare.gov/resource/rbry-mqwu.csv") 
+# h1 <- h %>%  
+#      select(state, 
+#             Type = hospital_type, 
+#             Ownership = hospital_ownership, 
+#             "Overall_rating" = hospital_overall_rating, 
+#             Mortality = mortality_national_comparison,
+#             "Safety_of_care" = safety_of_care_national_comparison,
+#             Readmission = readmission_national_comparison,
+#             "Patient_experience" = patient_experience_national_comparison,
+#             "Effectiveness_of_Care" = effectiveness_of_care_national_comparison,
+#             "Timeliness_of_Care" = timeliness_of_care_national_comparison,
+#             "Medical_imaging" = efficient_use_of_medical_imaging_national_comparison
+#      ) 
+h1 <- read.csv("hospitals.csv")
+
+source("graph_perc.R")
+source("graph.R")
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+Ranking of hospitals based on the ownership.
+
+```{r}
+selectInput("gov", label = "Ownership",
+            choices = c("Government - Federal",
+                        "Government - Hospital District or Authority",
+                        "Government - Local",
+                        "Government - State",
+                        "Physician",
+                        "Proprietary",
+                        "Tribal",
+                        "Voluntary non-profit - Church",
+                        "Voluntary non-profit - Other",
+                        "Voluntary non-profit - Private"),
+                        selected = c("Government - State", "Government - Local"), multiple = TRUE)
+
+selectInput("category", label =  "Category",
+            choices = c(
+            "Overall_rating",
+            "Type", 
+            "Mortality",
+            "Safety_of_care" ,
+            "Readmission" ,
+            "Patient_experience" ,
+            "Effectiveness_of_Care",
+            "Timeliness_of_Care",
+            "Medical_imaging"),
+            selected = "Overall_rating")
+
+```
+
+Column
+-----------------------------------------------------------------------
+
+### Category in % 
+
+
+
+```{r}
+renderPlot({
+  h1$gov <- h1$Ownership %in% as.character(input$gov) #
+
+states <- unique(h1$state) %>% as.character() %>% sort() 
+out <- NULL 
+tmp <- NULL 
+hospitals_gov <- NULL 
+for (s in 1:length(states)) { 
+     state <- filter(h1, state == states[s] & gov == TRUE) %>% select(-gov) # !!!!!! true or false
+     for (i in 2:length(state)) { 
+          tmp <- table(state[,i]) %>% as.data.frame(.) %>% mutate(category = colnames(state)[i]) 
+          tmp$Freq <- tmp$Freq/sum(tmp$Freq)
+          out <- rbind(out, tmp) 
+          
+     } 
+     out$state <- states[s]  
+     if (s == 1) { 
+          hospitals <- out 
+     } else { 
+          hospitals_gov <- rbind(hospitals_gov, out) 
+     }  
+     out <- NULL 
+     tmp <- NULL 
+}  
+
+hospitals_gov$category <- as.factor(hospitals_gov$category) 
+hospitals_gov$state    <- as.factor(hospitals_gov$state) 
+colnames(hospitals_gov)[1] <- "Values"
+
+
+graph_perc(as.character(input$category), h = hospitals_gov)
+})
+```
+
+
+
+### Category
+
+```{r}
+renderPlot({
+  
+  h1$gov <- h1$Ownership %in% as.character(input$gov)
+h1 <- h1 %>%group_by(state) %>% 
+  mutate(n = n())
+
+h1 <- filter(h1, gov == TRUE)
+
+for (i in 5:11) {  
+  h1[[i]] <- factor(h1[[i]], levels(h1[[i]])[c(3,4,2,1)])
+}
+h1$Overall_rating <- factor(h1$Overall_rating, levels(h1$Overall_rating)[c(6, 1:5)]) 
+
+
+graph(as.character(input$category), tab = h1)
+})
+```
+
