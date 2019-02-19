@@ -9,7 +9,8 @@ output:
 ```{r global, include=FALSE}
 # load data in "global" chunk so it can be shared by all users of the dashboard
 library(dplyr)
-library(ggplot2)
+library(ggplot2) 
+library(shinyWidgets)
 
 # h <- read.csv("https://data.medicare.gov/resource/rbry-mqwu.csv") 
 # h1 <- h %>%  
@@ -26,10 +27,14 @@ library(ggplot2)
 #             "Medical_imaging" = efficient_use_of_medical_imaging_national_comparison
 #      ) 
 h1 <- read.csv("hospitals.csv")
+ph1 <- read.csv("physician.csv")
 
 source("graph_perc.R")
 source("graph.R")
 ```
+
+Hospitals
+=====================================
 
 Column {.sidebar}
 -----------------------------------------------------------------------
@@ -130,3 +135,61 @@ graph(as.character(input$category), tab = h1)
 })
 ```
 
+Physicians  {data-orientation=rows}
+=====================================
+
+
+
+```{r}
+materialSwitch(inputId = "id", label = "Next graphs", status = "primary", right = TRUE)
+```
+
+
+```{r}
+graph_ph <- function (title, data = ph1) {
+     ph1 <- data
+     tmp <- filter(ph1, measure_title == title) %>% 
+          group_by(state) %>% 
+          summarise(performance = mean(measure_performance_rate, na.rm = TRUE)) %>% 
+          droplevels(.)
+     
+     tmp$performance <- coalesce(tmp$performance, 0) #remove of NAs
+     
+     third <- levels(reorder(tmp$state, -tmp$performance))[3]
+     third <- filter(tmp, state == third)
+     
+     ggplot(tmp, aes(x=reorder(state, -performance), y = performance)) +
+          geom_col(aes(fill = ifelse(state == "AL",1,0))) +
+          geom_hline(aes(yintercept = third$performance), color = "grey") +
+     #     geom_segment(x = 18, y = 28, xend = 18, yend = third$performance, col = "red") +
+          geom_text(data = filter(tmp, state == "AL"), aes(label = performance), vjust = 1.5, size = 2) +
+          geom_text(data = filter(tmp, state == "AL"), aes(label = round(third$performance, digits = 0)), size = 2,            y = third$performance+1.5) +     
+          theme_minimal() + labs( x = "State", y = "Measure of performance", title = title) +
+          guides(fill=FALSE) +
+    theme(text = element_text(size=8))
+}
+```
+
+Row 
+-------------------------------------
+
+### 
+
+```{r, fig.width=12}
+g1 <- graph_ph("Attention to patient medicine cost." )
+g2 <- graph_ph("Between visit communication." )
+g3 <- graph_ph("Clinicians working together for your care." )
+g4 <- graph_ph("Courteous and helpful office staff." )
+g5 <- graph_ph("Getting timely care, appointments, and information." )
+g6 <- graph_ph("Health promotion and education." )
+g7 <- graph_ph("How well clinicians communicate." )
+g8 <- graph_ph("Patients' rating of clinicians." )
+
+renderPlot({
+  ifelse(input$id == TRUE,
+  gridExtra::grid.arrange(g1, g2, g3,g4, ncol = 2),
+  gridExtra::grid.arrange(g5, g6, g7,g8, ncol = 2))
+})
+
+
+```
