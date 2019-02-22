@@ -1,35 +1,10 @@
-dat <- data.frame(a=5, b=8, c=4, d=-1, e=4, f=2, g=5, h=2)
-
-library(ggradar)
-
-ggradar(dat)
-
-mtcars %>%
-     rownames_to_column( var = "group" ) %>%
-     tail(4) %>% select(1:10) -> mtcars_radar
-
-ggradar(dat, grid.min = 0, grid.max = 10) 
-
+library(dplyr)
 library(plotly)
-
-plot_ly(
-     type = 'scatterpolar',
-     r = as.numeric(dat[1,]),
-     theta = colnames(dat),
-     fill = 'toself'
-) %>%
-     layout(
-          polar = list(
-               radialaxis = list(
-                    visible = T,
-                    range = c(-5,10)
-               )
-          ),
-          showlegend = F
-     )
 
 
 ##### przygotowanie danych
+ph1 <- read.csv("physician.csv")
+
 out <- matrix(NA, nrow = 3, ncol = 8)
 
 for (i in 1:length(levels(ph1$measure_title))) {
@@ -99,3 +74,66 @@ plot_ly(
           autosize = F,
           margin = m
      )
+
+
+##### Hospitals
+h1 <- read.csv("hospitals.csv")
+h <- h1 %>% select(- Overall_rating, - Ownership, - Type)
+
+states <- unique(h$state) %>% as.character() %>% sort() 
+out <- NULL 
+tmp <- NULL 
+hospitals <- NULL 
+for (s in 1:length(states)) { 
+  state <- filter(h, state == states[s])
+  for (i in 2:length(state)) { 
+    tmp <- table(state[,i]) %>% as.data.frame(.) %>% mutate(category = colnames(state)[i]) 
+    out <- rbind(out, tmp) 
+    
+  } 
+  out$state <- states[s]  
+  if (s == 1) { 
+    hospitals <- out 
+  } else { 
+    hospitals<- rbind(hospitals, out) 
+  }  
+  out <- NULL 
+  tmp <- NULL 
+}  
+
+hospitals$category <- as.factor(hospitals$category) 
+hospitals$state    <- as.factor(hospitals$state) 
+colnames(hospitals)[1] <- "Values"
+
+hospitals <- hospitals %>% filter(Values == "Below the national average" & state == "AL")
+
+hradar <- hospitals %>% select(category, Freq) %>% t(.)
+
+m <- list(
+  l = 10,
+  r = 10,
+  b = 100,
+  t = 100,
+  pad = 4
+)
+
+plot_ly(
+  type = 'scatterpolar',
+  fill = 'toself',
+  marker = list(color = "red", opacity = .5),
+  fillcolor = list(color = "red", opacity = .5),
+    r = hradar[2,],
+    theta = hradar[1,]
+  ) %>%
+   layout(
+    polar = list(
+      radialaxis = list(
+        visible = T,
+        range = c(0,5)
+      )
+    ),
+    title = "Number of hospitals below national average",
+    autosize = F,
+    margin = m,
+    showlegend = F
+  )

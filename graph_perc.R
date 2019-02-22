@@ -20,7 +20,7 @@ graph_perc <- function(cat, h = hospitals) {
           ggplot(tmp, aes(x=state, y = Freq*100)) +
                geom_col(aes(fill = Values)) +
                # scale_fill_manual("") +
-               geom_vline(aes(xintercept = state %in% "AL"), color = "grey") +
+               geom_vline(aes(xintercept = which(levels(state) %in% "AL")), color = "grey") +
                theme_minimal()+ labs( x = "State", y = "% of hospitals", title = "Type")
           
      } else {
