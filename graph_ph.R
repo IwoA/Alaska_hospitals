@@ -1,4 +1,7 @@
-graph_ph <- function (title, data = ph1) {
+graph_ph <- function (title, data = ph1) {  # helper function plotting graphs for pysician dataset
+  # title - category of physicians measure and title of a graph
+  # data - datatable
+  
   ph1 <- data
   tmp <- filter(ph1, measure_title == title) %>% 
     group_by(state) %>% 

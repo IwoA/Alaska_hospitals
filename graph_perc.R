@@ -1,5 +1,8 @@
-graph_perc <- function(cat, h = hospitals) {
-     hospitals <- h
+graph_perc <- function(cat, data = hospitals) { # helper function plotting graphs for percentage values
+  # cat - category of hospitals measure
+  # h - datatable
+  
+     hospitals <- data  # "starting" the argument. Otherwise next line would file due to recursive issues.
      tmp <- filter(hospitals, category == cat)
      tmp <- droplevels(tmp)
      

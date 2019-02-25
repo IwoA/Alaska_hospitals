@@ -1,5 +1,5 @@
 ---
-title: "Map of data sources"
+title: "Alaska Health Quality"
 author: "Iwo Augustyński"
 output: ioslides_presentation
 ---
@@ -24,12 +24,13 @@ knitr::opts_chunk$set(echo = FALSE)
 <!-- - Medicare Quality -->
 <!-- - Nursing Home Quality -->
 <!-- - Preventable Admissions -->
+# Map of data sources
 
 ## Primary Data Sources
 
 - [CMS](https://www.cms.gov/Research-Statistics-Data-and-Systems/Research-Statistics-Data-and-Systems.html) - Centers for Medicare & Medicaid Services
   - [HCAPS](https://www.hcahpsonline.org/) - Hospital Consumer Assessment of Healthcare Providers and Systems based on data submitted by participating hospitals to **CMS** and **AHRQ**
-  - [Medicare Compare](https://data.medicare.gov/data/hospital-compare) - (Hospital, Nursing Home, Physician, Home Health, Dialysis Facility, Hospice compare. Official datasets provided by the **CMS**
+  - [Medicare Compare](https://data.medicare.gov/data/hospital-compare) - (Hospital, Nursing Home, Physician, Home Health, Dialysis Facility, Hospice compare) Official datasets provided by the **CMS**
 - [AHRQ](https://www.ahrq.gov) - Agency for Healthcare Research and Quality
 - [CDC](http://wonder.cdc.gov) - National Center for Health Statistics
 
@@ -46,26 +47,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
+# Technical Considerations
 
-## Additional Eligible Data Sources
+##
 
-```{r }
-tab <- read.csv2("DATABASES_WITH_MEASURES.csv", encoding = "UTF-8")
-colnames(tab)[1:2] <- c("Database Name", "Database Description")
-knitr::kable(tab[1:4,1:2])
-```
-
-
-## Additional Eligible Data Sources
-
-```{r }
-knitr::kable(tab[5:8,1:2])
-```
+- Retrieval of data - csv file through API, updated annually (by script in job scheluder)
+- Presentation of results
+  - Flexdashboard: standalone static website; + free, fast, easy to integrate; -- static;
+  - Shiny Dashboard: interactive application; + free, flexible;   -- slower, requires shiny server;
+  - Tableau: interactive dashboard; + easier to amend changes; -- requires expensive licence;
 
 
+# Issues to discuss
 
-## Additional Eligible Data Sources
+## 
 
-```{r }
-knitr::kable(tab[9:12,1:2])
-```
+- Role of ownership
+- Small number of reporting hospitals (Safety of Care, Medical Imaging)
+- Small number of hospitals - volatility of results
