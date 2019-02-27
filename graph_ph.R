@@ -14,10 +14,10 @@ graph_ph <- function (title, data = ph1) {  # helper function plotting graphs fo
   third <- filter(tmp, state == third)
   
   ggplot(tmp, aes(x=reorder(state, -performance), y = performance)) +
-    geom_col(aes(fill = ifelse(state == "AL",1,0))) +
+    geom_col(aes(fill = ifelse(state == "AK",1,0))) +
     geom_hline(aes(yintercept = third$performance), color = "grey") +
     #     geom_segment(x = 18, y = 28, xend = 18, yend = third$performance, col = "red") +
-    geom_text(data = filter(tmp, state == "AL"), aes(label = performance), vjust = 1.5) +
-    geom_text(data = filter(tmp, state == "AL"), aes(label = round(third$performance, digits = 0)),  y = third$performance+1.5) +     
+    geom_text(data = filter(tmp, state == "AK"), aes(label = performance), vjust = 1.5) +
+    geom_text(data = filter(tmp, state == "AK"), aes(label = round(third$performance, digits = 0)),  y = third$performance+1.5) +     
     theme_minimal() + labs( x = "State", y = "Measure of performance", title = title) +
     guides(fill=FALSE)}

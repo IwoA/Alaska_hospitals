@@ -16,14 +16,14 @@ graph_perc <- function(cat, data = hospitals) { # helper function plotting graph
           ggplot(tmp, aes(x=reorder(state, -above), y = Freq*100)) +
                geom_col(aes(fill = Values)) +
                scale_fill_manual("Score", values = c("lightgray", "#d7191c","#fdae61", "#ffffbf", "#a6d96a", "#1a9641")) + #colors - http://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=5
-               geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
+               geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AK"))) +
                theme_minimal()+ labs( x = "State", y = "% of hospitals", title = "Overall rating")
           
      } else if (cat == "Type") {
           ggplot(tmp, aes(x=state, y = Freq*100)) +
                geom_col(aes(fill = Values)) +
                # scale_fill_manual("") +
-               geom_vline(aes(xintercept = which(levels(state) %in% "AL")), color = "grey") +
+               geom_vline(aes(xintercept = which(levels(state) %in% "AK")), color = "grey") +
                theme_minimal()+ labs( x = "State", y = "% of hospitals", title = "Type")
           
      } else {
@@ -36,7 +36,7 @@ graph_perc <- function(cat, data = hospitals) { # helper function plotting graph
           ggplot(tmp, aes(x=reorder(state, -above), y = Freq*100)) +
                geom_col(aes(fill = Values)) +
                scale_fill_manual("Score", values = c("lightgray","orange","red", "green")) +
-               geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AL"))) +
+               geom_vline(aes(xintercept = which(levels(reorder(state, -above)) %in% "AK"))) +
                theme_minimal()+ labs( x = "State", y = "% of hospitals", title = gsub("_", " ", cat)) +
                   theme(legend.position = "bottom")
      }

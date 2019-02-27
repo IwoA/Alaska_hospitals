@@ -13,17 +13,18 @@ ui <- dashboardPage(
       menuItem("KPIs", tabName = "kpi", icon = icon("dashboard")),
       menuItem("Overview", tabName = "overview", icon = icon("dashboard")),
       menuItem("Hospitals", tabName = "hospitals", icon = icon("chart-bar")),
-      menuItem("Physicians", tabName = "physicians", icon = icon("signal"))
+      menuItem("Home Health", tabName = "home", icon = icon("signal"))
     )  
   ),
   dashboardBody(
+    tags$style(type='text/css', '#below {background-color: rgba(255,255,0,0.40); color: red; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}'),
     tabItems(
       tabItem(tabName = "kpi",
               fluidRow(
                 box(plotOutput("overall"), width = 12, title = "Hospitals")                
               ),
               fluidRow(
-                box(plotOutput("physicians_kpi"), width = 12, title = "Physicians") 
+                box(plotOutput("home_kpi"), width = 12, title = "Home Health Care") 
               )
               
       ),
@@ -31,6 +32,7 @@ ui <- dashboardPage(
       
       tabItem(tabName = "overview",
               plotlyOutput("radar_h"),
+              verbatimTextOutput("below"),
               plotlyOutput("radar")
               
       ),
@@ -68,16 +70,14 @@ ui <- dashboardPage(
               plotOutput("category")
       ),
       
-      tabItem(tabName = "physicians",
-              plotOutput("physicians"),
-              plotOutput("physicians1"),
-              plotOutput("physicians2"),
-              plotOutput("physicians3"),
-              plotOutput("physicians4"),    
-              plotOutput("physicians5"),
-              plotOutput("physicians6"),
-              plotOutput("physicians7"),
-              plotOutput("physicians8")
+      tabItem(tabName = "home",
+              plotOutput("home"),
+              plotOutput("home1"),
+              plotOutput("home2"),
+              plotOutput("home3"),
+              plotOutput("home4"),    
+              plotOutput("home5")
+
       )
     )
     
@@ -96,10 +96,11 @@ server <- function(input, output) {
   
   source("graph_perc.R")
   source("graph.R")
-  source("graph_ph.R")
+  source("graph_hh.R")
   
   h1 <- read.csv("hospitals.csv")
-  ph1 <- read.csv("physician.csv")
+  hh <- read.csv("home_health.csv") 
+  hh <- select(hh, -X) 
   
   output$overall <- renderPlot({
     states <- unique(h1$state) %>% as.character() %>% sort() 
@@ -132,53 +133,27 @@ server <- function(input, output) {
     graph_perc("Overall_rating", data = hospitals)
   })
   
-  output$physicians_kpi <- renderPlot({
-    tmp <- ph1 %>% group_by(state) %>% 
-      summarise(performance = mean(measure_performance_rate, na.rm = TRUE)) %>% 
-      droplevels(.)
+  output$home_kpi <- renderPlot({
+    tmp <- hh %>% group_by(state) %>% tidyr::gather("answers", "values", 1:5) %>% summarise(avg = mean(values))
     
-    
-    third <- levels(reorder(tmp$state, -tmp$performance))[3]
+    third <- levels(reorder(tmp$state, -tmp$avg))[3]
     third <- filter(tmp, state == third)
     
-    ggplot(tmp, aes(x=reorder(state, -performance), y = performance)) +
-      geom_col(aes(fill = ifelse(state == "AL",1,0))) +
-      geom_hline(aes(yintercept = third$performance), color = "grey") +
-      #     geom_segment(x = 18, y = 28, xend = 18, yend = third$performance, col = "red") +
-      geom_text(data = filter(tmp, state == "AL"), aes(label = round(performance, digits = 0)), vjust = 1.5) +
-      geom_text(data = filter(tmp, state == "AL"), aes(label = round(third$performance, digits = 0)),  y = third$performance+1.5) +     
-      theme_minimal() + labs( x = "State", y = "Measure of performance", title = "Physicians Average Score") +
-      guides(fill=FALSE) 
+    ggplot(tmp, aes(x=reorder(state, -avg), y = avg)) +
+      geom_col(aes(fill = ifelse(state == "AK",1,0))) +
+      geom_hline(aes(yintercept = third$avg), color = "grey") +
+      #     geom_segment(x = 18, y = 28, xend = 18, yend = third$avg, col = "red") +
+      geom_text(data = filter(tmp, state == "AK"), aes(label = round(avg, digits = 0)), vjust = 1.5) +
+      geom_text(data = filter(tmp, state == "AK"), aes(label = round(third$avg, digits = 0)),  y = third$avg+1.5) +     
+      theme_minimal() + labs( x = "State", y = "%", title = "Average score") +
+      guides(fill=FALSE) + theme(plot.title = element_text(colour = "red", size = 15))
   })
   
   output$radar <- renderPlotly({
-    out <- matrix(NA, nrow = 3, ncol = 8)
+    radar <- hh %>% filter(state == "AK") %>% select(-state)
+    mx <- hh %>% select(-state) %>% sapply(., max)
     
-    for (i in 1:length(levels(ph1$measure_title))) {
-      tmp <- filter(ph1, measure_title == levels(ph1$measure_title)[i]) %>% 
-        group_by(state) %>% 
-        summarise(performance = mean(measure_performance_rate, na.rm = TRUE)) %>% 
-        droplevels(.)
-      
-      tmp$performance <- coalesce(tmp$performance, 0) #remove of NAs
-      
-      first <- levels(reorder(tmp$state, -tmp$performance))[1]
-      first <- filter(tmp, state == first)
-      
-      second <- levels(reorder(tmp$state, -tmp$performance))[2]
-      second <- filter(tmp, state == second)
-      
-      third <- levels(reorder(tmp$state, -tmp$performance))[3]
-      third <- filter(tmp, state == third)
-      
-      al <- filter(tmp, state == "AL")
-      
-      out[1,i] <- round(first$performance, digits = 0) - round(al$performance, digits = 0)
-      out[2,i] <- round(second$performance, digits = 0) - round(al$performance, digits = 0)
-      out[3,i] <- round(third$performance, digits = 0) - round(al$performance, digits = 0)
-    }
-    colnames(out) <- levels(ph1$measure_title)
-    #rownames(out) <- "Distance to 3rd state"
+    t <-  c("Rating 9 or 10", "Good communication", "Discussed medicine, pain, etc.", "Professional", "Recommend to friends")
     
     m <- list(
       l = 10,
@@ -188,36 +163,32 @@ server <- function(input, output) {
       pad = 4
     )
     
-    t <-  colnames(out)
-    t[5] <- "Getting timely care"
-    
     plot_ly(
       type = 'scatterpolar',
       fill = 'toself'
     )%>%
       add_trace(
-        r = out[1,],
+        marker = list(color = "red", opacity = .5),
+        fillcolor = list(color = "red", opacity = .5),
+        r = t(radar),
         theta = t,
-        name = 'Distance to 1st state'
+        name = 'Alaska'
       ) %>%
       add_trace(
-        r = out[2,],
+        marker = list(color = "lightgray", opacity = .5),
+        fillcolor = list(color = "lightgray", opacity = .5),
+        r = t(mx),
         theta = t,
-        name = 'Distance to 2nd state'
-      ) %>%
-      add_trace(
-        r = out[3,],
-        theta = t,
-        name = 'Distance to 3rd state'
+        name = 'Max'
       ) %>%
       layout(
         polar = list(
           radialaxis = list(
             visible = T,
-            range = c(-1,25)
+            range = c(0,100)
           )
         ),
-        title = "Physicians' assessment",
+        title = "Home Health Care. % of positive answers.",
         #   autosize = F,
         margin = m
       )
@@ -251,7 +222,7 @@ server <- function(input, output) {
     hospitals$state    <- as.factor(hospitals$state) 
     colnames(hospitals)[1] <- "Values"
     
-    hospitals <- hospitals %>% filter(Values == "Below the national average" & state == "AL")
+    hospitals <- hospitals %>% filter(Values == "Same as the national average" & state == "AK")
     
     hradar <- hospitals %>% select(category, Freq) %>% t(.)
     
@@ -278,12 +249,14 @@ server <- function(input, output) {
             range = c(0,5)
           )
         ),
-        title = "Number of hospitals below national average",
+        title = "Number of hospitals same as  national average",
         #  autosize = F,
         margin = m,
         showlegend = F
       )
   })
+  
+  output$below <- renderText("Number of hospitals below the national average is 0!")
   
   output$category_perc <- renderPlot({
     h1$gov <- h1$Ownership %in% as.character(input$gov) #
@@ -335,56 +308,43 @@ server <- function(input, output) {
     graph(as.character(input$category), tab = h1)
   })
   
-  output$physicians <- renderPlot({
-    tmp <- ph1 %>% group_by(state) %>% 
-      summarise(performance = mean(measure_performance_rate, na.rm = TRUE)) %>% 
-      droplevels(.)
+  output$home <- renderPlot({
+    tmp <- hh %>% group_by(state) %>% tidyr::gather("answers", "values", 1:5) %>% summarise(avg = mean(values))
     
-    
-    third <- levels(reorder(tmp$state, -tmp$performance))[3]
+    third <- levels(reorder(tmp$state, -tmp$avg))[3]
     third <- filter(tmp, state == third)
     
-    ggplot(tmp, aes(x=reorder(state, -performance), y = performance)) +
-      geom_col(aes(fill = ifelse(state == "AL",1,0))) +
-      geom_hline(aes(yintercept = third$performance), color = "grey") +
-      #     geom_segment(x = 18, y = 28, xend = 18, yend = third$performance, col = "red") +
-      geom_text(data = filter(tmp, state == "AL"), aes(label = round(performance, digits = 0)), vjust = 1.5) +
-      geom_text(data = filter(tmp, state == "AL"), aes(label = round(third$performance, digits = 0)),  y = third$performance+1.5) +     
-      theme_minimal() + labs( x = "State", y = "Measure of performance", title = "Average score") +
+    ggplot(tmp, aes(x=reorder(state, -avg), y = avg)) +
+      geom_col(aes(fill = ifelse(state == "AK",1,0))) +
+      geom_hline(aes(yintercept = third$avg), color = "grey") +
+      #     geom_segment(x = 18, y = 28, xend = 18, yend = third$avg, col = "red") +
+      geom_text(data = filter(tmp, state == "AK"), aes(label = round(avg, digits = 0)), vjust = 1.5) +
+      geom_text(data = filter(tmp, state == "AK"), aes(label = round(third$avg, digits = 0)),  y = third$avg+1.5) +     
+      theme_minimal() + labs( x = "State", y = "%", title = "Average score") +
       guides(fill=FALSE) + theme(plot.title = element_text(colour = "red", size = 15))
   })
   
-  output$physicians1 <- renderPlot({
-    graph_ph("Attention to patient medicine cost.", data = ph1 )
+  output$home1 <- renderPlot({
+    graph_hh(colnames(hh)[1], data = hh )
   })
   
-  output$physicians2 <- renderPlot({
-    graph_ph("Between visit communication.", data = ph1)
+  output$home2 <- renderPlot({
+    graph_hh(colnames(hh)[2], data = hh)
   })
   
-  output$physicians3 <- renderPlot({
-    graph_ph("Clinicians working together for your care.", data = ph1 )
+  output$home3 <- renderPlot({
+    graph_hh(colnames(hh)[3], data = hh )
   })
   
-  output$physicians4 <- renderPlot({
-    graph_ph("Courteous and helpful office staff.", data = ph1 )
+  output$home4 <- renderPlot({
+    graph_hh(colnames(hh)[4], data = hh )
   })
   
-  output$physicians5 <- renderPlot({
-    graph_ph("Getting timely care, appointments, and information.", data = ph1 )
+  output$home5 <- renderPlot({
+    graph_hh(colnames(hh)[5], data = hh )
   })
   
-  output$physicians6 <- renderPlot({
-    graph_ph("Health promotion and education.", data = ph1 )
-  })
-  
-  output$physicians7 <- renderPlot({
-    graph_ph("How well clinicians communicate.", data = ph1 )
-  })
-  
-  output$physicians8 <- renderPlot({
-    graph_ph("Patients' rating of clinicians.", data = ph1 )
-  })
+
   
 }
 
